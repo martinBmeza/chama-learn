@@ -1,3 +1,3 @@
 # Chama-learn 
-
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+### work in progress...
+![Alt Text](https://media.tenor.com/images/b65504dbb7eeafc34f3ae35c455cf10f/tenor.gif)

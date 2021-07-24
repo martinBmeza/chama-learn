@@ -4,9 +4,14 @@
 	1.3 Crear un modulo que automaticamente descargue los pdf y los almacene en una carpeta (hecho) 
 	1.4 Crear un modulo que pueda transcribir los archivos pdfs a archivo de texto plano dejando unicamente la info necesaria
 	1.5 formatear y limpar los archivos de texto (caracteres especiales, indicador de formatos, etc)
+	1.6 Si hay que scrappear varias paginas para conseguir mas data, habria que armar una manera de validar de que un tema no
+	se repita en la base de datos.
 
-2 - Modelo NLP 
-
+2 - Modelo NLP: ir probando los modelos a medida que se presentan en el libro 
+	2.1 stateless RNN 
+	2.2statefull RNN
+	
 3 - Entrenamiento, validacion y testeo (predicciones)
+	3.1 armar un modulo versatil que sirva para todos los modelos (modular)
 
 4 - Desarrollar app para alimentarse del modelo via requests

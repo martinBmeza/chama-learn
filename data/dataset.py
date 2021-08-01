@@ -31,7 +31,7 @@ def dataset_pre(path_file):
     tokenizer = keras.preprocessing.text.Tokenizer(char_level=True)
     tokenizer.fit_on_texts(chamame_text)
     encoded_dataset = np.array(tokenizer.texts_to_sequences(chamame_text))-1
-    max_caracteres = tokenizer.document_count
+    max_caracteres = len(tokenizer.word_index)
     return encoded_dataset, max_caracteres
 
 a,b = dataset_pre('/media/gmarzik/Samsung_T5/RNN_chamame/chama-learn/data/txts/chamame_dataset.txt')
@@ -98,6 +98,7 @@ def window_sequence(dataset,n_steps,batch_size,max_carac,buffer_size):
 e = window_sequence(c,100,32,b,1)
 
 for element in e:
-    print(element) #primero los inputs one hot encodeados y después los outputs como enteros normales
+    print(element[0])
+    #print(element[1])#primero los inputs one hot encodeados y después los outputs como enteros normales
 
     

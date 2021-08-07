@@ -1,10 +1,14 @@
 import  tqdm
 import json 
 import urllib.request
+import os
 
 #Cargo el archivo q contiene los links
 archivo = open('pdf_links.json')
 links = json.load(archivo)
+
+#Creo carpeta de guardado
+os.mkdir('pdfs_descargados')
 
 #descargo los pdfs
 def descargar_pdf(pdf_path):

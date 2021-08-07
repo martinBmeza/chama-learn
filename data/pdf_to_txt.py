@@ -16,6 +16,7 @@ from pdfminer.pdfpage import PDFPage
 from pdfminer.pdfparser import PDFParser
 import os
 from pathlib import Path
+import tqdm
 
 def convert_pdf_to_string(file_path):
     """
@@ -73,12 +74,12 @@ def txt_correction(txt):
             lines_corr.append('\n')
     return lines_corr
 
-path_pdfs = '/media/gmarzik/Samsung_T5/RNN_chamame/chama-learn/data/pdfs_descargados'
-path_txts = '/media/gmarzik/Samsung_T5/RNN_chamame/chama-learn/data/txts'        
+path_pdfs = 'pdfs_descargados'
+path_txts = 'txts'        
 nombre_archivos = [os.path.splitext(filename)[0] for filename in os.listdir(path_pdfs)]
 num_archivos = len(nombre_archivos)
 
-for i in range(num_archivos):
+for i in tqdm.tqdm(range(num_archivos)):
     text = convert_pdf_to_string(path_pdfs + '/' + nombre_archivos[i] + '.pdf')
     text_corr = txt_correction(text)
     file=open(path_txts + '/' +  nombre_archivos[i] + '.txt','w')

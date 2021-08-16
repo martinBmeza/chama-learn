@@ -34,7 +34,7 @@ def dataset_pre(path_file):
     max_caracteres = len(tokenizer.word_index)
     return encoded_dataset, max_caracteres
 
-a,b = dataset_pre('/media/gmarzik/Samsung_T5/RNN_chamame/chama-learn/data/txts/chamame_dataset.txt')
+a,b = dataset_pre('/txts/chamame_dataset.txt')
 
 def dataset_split(encoded_d,train_s):
     """

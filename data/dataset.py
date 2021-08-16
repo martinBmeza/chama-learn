@@ -30,11 +30,10 @@ def dataset_pre(path_file):
         chamame_text = f.read()
     tokenizer = keras.preprocessing.text.Tokenizer(char_level=True)
     tokenizer.fit_on_texts(chamame_text)
-    encoded_dataset = np.array(tokenizer.texts_to_sequences(chamame_text))-1
+    [encoded_dataset] = np.array(tokenizer.texts_to_sequences([chamame_text]))-1
     max_caracteres = len(tokenizer.word_index)
-    return encoded_dataset, max_caracteres
+    return encoded_dataset, max_caracteres, tokenizer
 
-a,b = dataset_pre('/txts/chamame_dataset.txt')
 
 def dataset_split(encoded_d,train_s):
     """
@@ -60,7 +59,6 @@ def dataset_split(encoded_d,train_s):
     val_set = tf.data.Dataset.from_tensor_slices(encoded_d[train_size:])
     return train_set,val_set
 
-c,d = dataset_split(a,90)
 
 def window_sequence(dataset,n_steps,batch_size,max_carac,buffer_size):
     """
@@ -95,10 +93,16 @@ def window_sequence(dataset,n_steps,batch_size,max_carac,buffer_size):
     dataset_final = dataset_one_hot_encoded.prefetch(buffer_size) #se agrega el prefetch para tener listas nuevas instancias mientras se procesa la instancia actual
     return dataset_final
 
-e = window_sequence(c,100,32,b,1)
 
-for element in e:
-    print(element[0])
-    #print(element[1])#primero los inputs one hot encodeados y después los outputs como enteros normales
+if __name__ == '__main__':
+    a,b = dataset_pre('/txts/chamame_dataset.txt')
+
+    c,d = dataset_split(a,90)
+
+    e = window_sequence(c,100,32,b,1)
+
+    for element in e:
+        print(element[0])
+        #print(element[1])#primero los inputs one hot encodeados y después los outputs como enteros normales
 
     

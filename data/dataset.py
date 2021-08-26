@@ -152,10 +152,10 @@ def batch_stateful(encoded_dataset,train_s,batch_size,n_steps,max_carac):
     dataset = dataset.prefetch(1)
     return dataset
 
-f = batch_stateful(a,90,128,100,b)
+# f = batch_stateful(a,90,128,100,b)
 
-for element in f:
-    print(element[0])
+# for element in f:
+#     print(element[0])
 
 
 

@@ -8,6 +8,7 @@
 
 # Jupyter Notebook
 *.ipynb_checkpoints
+*training_checkpoints
 
 # Vim
 *.swp

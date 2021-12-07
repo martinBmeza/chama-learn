@@ -1,0 +1,13 @@
+\section{Arquitecturas Básicas}
+\subsection{Red Recurrente simple}
+
+\subsection{Problema de las secuencias largas}
+Para entrenar una red recurrente sobre secuencias muy largas, tenemos que ejecutar muchos pasos temporales, lo que hace que se convierta en una red muy profunda (la secuencia al hacer el despliegue se vuelve muy larga). Esto genera problemas de  inestabilidad de gradiente, por lo cual puede tomar mucho tiempo de entrenar o el entrenamiento puede ser inestable. Además, trabajar con secuencias largas hace que al final la red deje de considerar las primeras entradas (las olvida). 
+
+\subsection{Embeddings}
+En tareas de NLP, el embedding se puede pensar como una alternativa a one-hot encoding, que ademas aplica también una reducción de dimensionalidad. 
+
+Para entrenar modelos de ML con texto, se mapea el texto hacia variables categóricas. Comúnmente se utiliza one-hot encoding para convertir esas variables categóricas en números. Para hacerlo, se definen "dummy features" (features binarias) para cada categoria, formando asi vectores de largo equivalente al numero de categorias posibles, conformados por unos y ceros. Si aplicamos este enfoque al nivel de las palabras, tendriamos una dummy feature por cada palabra lo cual significaria tener vectores de codificación con demasiadas dimensiones. Esto requiere una gran cantidad de memoria para almacenar los vectores y disminuye la eficiencia del sistema. 
+El embedding nos permite convertir cada palabra en un vector con una logitud fija, predefinida. De esta forma se crean vectores de dimensiones controladas que contienen numeros reales en lugar de unos y ceros. 
+
+De esta manera, el embedding luce como una "lookup table", donde las palabras son las keys, y los vectores son los valores. 

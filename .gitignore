@@ -13,3 +13,9 @@
 # Vim
 *.swp
 *.swo
+
+# txt files
+*.txt
+
+# Weights
+*.hdf5
